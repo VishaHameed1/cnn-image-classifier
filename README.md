@@ -1,9 +1,8 @@
 
-
 ```markdown
-# CNN Image Classifier - Cats vs Dogs
+# CNN Image Classifier - Cats vs Dogs (PyTorch)
 
-This project is a **Deep Learning Image Classifier** using **Convolutional Neural Networks (CNNs)** built with **TensorFlow/Keras**.  
+This project is a **Deep Learning Image Classifier** using **Convolutional Neural Networks (CNNs)** built with **PyTorch**.  
 The model classifies images of cats and dogs using **data augmentation** to improve generalization.
 
 ---
@@ -14,7 +13,7 @@ The model classifies images of cats and dogs using **data augmentation** to impr
 
 cnn-image-classifier/
 │
-├── main.py             # Full workflow (training, evaluation, visualization)
+├── main.py             # Full workflow (training, evaluation)
 ├── dataset/            # Cats vs Dogs images (ignored in Git)
 │   ├── train/
 │   │   ├── cats/
@@ -32,10 +31,11 @@ cnn-image-classifier/
 ## 📦 Requirements
 
 - Python 3.8+
-- TensorFlow
-- Matplotlib
+- PyTorch
+- torchvision
 - NumPy
-- scikit-learn (if doing train/test split programmatically)
+- Matplotlib
+- scikit-learn (for train/test split)
 
 Install dependencies:
 
@@ -54,32 +54,32 @@ pip install -r requirements.txt
 
 2. **Data Augmentation**
 
-   * Apply random rotations, shifts, zooms, and horizontal flips.
+   * Apply random rotations and horizontal flips.
    * Increases dataset variability and helps the model generalize better.
 
 3. **CNN Model Architecture**
 
    * 3 Convolutional layers with ReLU activation
    * MaxPooling layers after convolutions
-   * Fully connected Dense layers with Dropout
-   * Output layer with **Sigmoid** activation for binary classification
+   * Fully connected layers
+   * Output layer with **2 neurons** for binary classification
 
 4. **Training**
 
    * Optimizer: Adam
-   * Loss: Binary Crossentropy
+   * Loss: CrossEntropyLoss
    * Metrics: Accuracy
    * Epochs: 10 (can be increased for higher accuracy)
-   * Optional: EarlyStopping or ModelCheckpoint for large datasets
+   * Optional: GPU acceleration if available
 
-5. **Evaluation & Visualization**
+5. **Evaluation**
 
-   * Plot training & validation accuracy and loss curves.
-   * Monitor overfitting or underfitting.
+   * Compute test accuracy after training.
+   * Monitor training loss during epochs.
 
 6. **Model Saving**
 
-   * Save the trained model as `cnn_cats_vs_dogs.h5`.
+   * Save trained model with `torch.save(model.state_dict(), "cnn_cats_vs_dogs.pth")`
    * Can be loaded later for inference or deployment.
 
 ---
@@ -95,28 +95,25 @@ The script will:
 * Load images from the dataset
 * Apply augmentation
 * Train the CNN
-* Display accuracy & loss plots
-* Save the trained model
+* Display training loss
+* Evaluate accuracy on the test set
 
 ---
 
 ## 🖼 Notes
 
-* Recommended image size: 150x150 pixels.
-* For large datasets, adjust `batch_size` or use **GPU acceleration**.
-* Increase epochs for potentially higher accuracy.
-* Ensure all images are valid (corrupted images may break the training).
+* Recommended image size: 128x128 pixels.
+* For large datasets, adjust `batch_size` or use GPU acceleration.
+* Ensure all images are valid (corrupted images may break training).
 
 ---
 
 ## 🔗 References
 
-* [TensorFlow Keras Documentation](https://www.tensorflow.org/guide/keras)
+* [PyTorch Documentation](https://pytorch.org/docs/stable/index.html)
 * [Cats vs Dogs Dataset](https://www.microsoft.com/en-us/download/details.aspx?id=54765)
+
+```
 
 ---
 
-```
-
-
-```
