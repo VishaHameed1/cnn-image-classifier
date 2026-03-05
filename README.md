@@ -7,27 +7,6 @@ The model classifies images of cats and dogs using **data augmentation** to impr
 
 ---
 
-## 🐾 Project Structure
-
-```
-
-cnn-image-classifier/
-│
-├── main.py             # Full workflow (training, evaluation)
-├── dataset/            # Cats vs Dogs images (ignored in Git)
-│   ├── train/
-│   │   ├── cats/
-│   │   └── dogs/
-│   └── test/
-│       ├── cats/
-│       └── dogs/
-├── requirements.txt    # Python dependencies
-└── README.md
-
-````
-
----
-
 ## 📦 Requirements
 
 - Python 3.8+
@@ -113,7 +92,5 @@ The script will:
 * [PyTorch Documentation](https://pytorch.org/docs/stable/index.html)
 * [Cats vs Dogs Dataset](https://www.microsoft.com/en-us/download/details.aspx?id=54765)
 
-```
 
----
 
